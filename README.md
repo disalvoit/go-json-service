@@ -27,8 +27,10 @@ func (s *Service) Serve(ctx context.Context, ln net.Listener) error   // serve u
 ## Run it
 
 ```bash
-go test ./...            # the suite that ships with the starter
+go test .                # the suite that ships with the starter: green
 go test ./heldout/       # the held-out conformance suite: ten checks, nine of them red
+go test ./...            # both -- on the starter this dies at check 7: the panic
+                         # in /debug/panic takes the test binary with it
 go run ./cmd/measure     # the two numbers the episode quotes
 go run ./cmd/server 127.0.0.1:8080
 ```
